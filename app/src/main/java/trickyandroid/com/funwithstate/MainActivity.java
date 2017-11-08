@@ -7,11 +7,16 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends Activity {
+    MyCustomLayout mMyCustomLayout1;
+    MyCustomLayout mMyCustomLayout2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mMyCustomLayout1 = findViewById(R.id.myLayout1);
+        mMyCustomLayout2 = findViewById(R.id.myLayout2);
     }
 
 
@@ -35,5 +40,15 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }

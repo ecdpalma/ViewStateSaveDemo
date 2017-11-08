@@ -9,12 +9,17 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher" />
 
-    <TextView
+    <EditText
         android:id="@+id/text"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="My Text" />
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/text2"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
 
     <trickyandroid.com.funwithstate.CustomSwitch
         android:id="@+id/toggle"
