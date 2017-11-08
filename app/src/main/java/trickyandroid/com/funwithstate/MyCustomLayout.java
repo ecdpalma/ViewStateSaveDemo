@@ -5,6 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.SparseArray;
+import android.view.View;
 import android.widget.LinearLayout;
 
 public class MyCustomLayout extends LinearLayout {
@@ -27,6 +28,9 @@ public class MyCustomLayout extends LinearLayout {
         SavedState ss = new SavedState(superState);
         ss.childrenStates = new SparseArray();
 
+        View focusedView = findFocus();
+        ss.focusedId = focusedView != null ? focusedView.getId() : 0;
+
         for (int i = 0; i < getChildCount(); i++) {
             getChildAt(i).saveHierarchyState(ss.childrenStates);
         }
@@ -42,6 +46,9 @@ public class MyCustomLayout extends LinearLayout {
 
         if (ss.focusedId != 0) {
             findViewById(ss.focusedId).requestFocus();
+        }
+        else {
+            setDescendantFocusability(FOCUS_BLOCK_DESCENDANTS);
         }
         super.onRestoreInstanceState(ss.getSuperState());
     }
